@@ -176,22 +176,15 @@ getID("searchName").addEventListener("keyup", function () {
 });
 
 function setLocalStorage() {
-  // localStorge là măc định của html5, setItem Với key là tên biến để ta truy xuất và value là giá trị biến truyền vào.
-  // Chú ý: LocalStorage chỉ cho phép chúng ta lưu biến với kiểu String
-  // JSON.stringify(): chuyển về chuỗi
   var dataString = JSON.stringify(listStaff.arr);
-  //lưu xuống localStorage
   localStorage.setItem("ListStaff", dataString);
 }
 
 function getLocalStorage() {
   if (localStorage.getItem("ListStaff")) {
     var dataString = localStorage.getItem("ListStaff");
-    // cần chuyển data từ string => JSON
     var dataJson = JSON.parse(dataString);
-    //cập nhật data từ localStorage vào dsss.arr
     listStaff.arr = dataJson;
-    //re-renderListSV
     renderListStaff(listStaff.arr);
   }
 }

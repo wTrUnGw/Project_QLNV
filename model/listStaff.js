@@ -26,9 +26,7 @@ function ListStaff() {
 
   this.deleteStaff = function (accountS) {
     var index = this._findLocation(accountS);
-
     if (index !== -1) {
-      //xoa sv
       this.arr.splice(index, 1);
     }
   };
@@ -44,14 +42,12 @@ function ListStaff() {
     var findArr = [];
     for (var i = 0; i < this.arr.length; i++) {
       var sf = this.arr[i];
-      //convert keyword => lowercase
       var keylowercase = keyword.toLowerCase();
-      //convert sv.tenSV => lowercase
       var tenSFLowerCase = sf.rankOfStaff.toLowerCase();
       if (tenSFLowerCase.indexOf(keylowercase) !== -1) {
         findArr.push(sf);
       }
-      return findArr;
     }
+    return findArr;
   };
 }
